@@ -12,7 +12,7 @@ except ImportError:
     print("⚠️ Hailo SDK niet gevonden, alleen CPU/GPU modus beschikbaar!")
 
 # Functie om YOLOv8 te gebruiken zonder Hailo (standaard CPU/GPU)
-def detect_with_yolo(image_path, model_path="yolov8n.pt"):
+def detect_with_yolo(image_path, model_path="yolov8x.pt"):
     model = YOLO(model_path)  # YOLOv8 nano model (downloadt automatisch)
     image = cv2.imread(image_path)  # Laad de afbeelding
     results = model(image)  # Voer objectdetectie uit
