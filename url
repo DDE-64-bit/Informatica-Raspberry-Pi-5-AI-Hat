@@ -1,0 +1,1 @@
+wget https://hailo.ai/downloads/hailo-sdk-2023.2.0.deb -O hailo-sdk.deb && sudo dpkg -i hailo-sdk.deb && sudo apt --fix-broken install -y
