@@ -1,1 +1,17 @@
 wget https://hailo.ai/downloads/hailo-sdk-2023.2.0.deb -O hailo-sdk.deb && sudo dpkg -i hailo-sdk.deb && sudo apt --fix-broken install -y
+
+
+Zet PyTorch-model om naar ONNX
+
+import torch
+model = torch.load("yolov8n-oiv7.pt")  # Laad het model
+model.export("yolov8n-oiv7.onnx")  # Exporteer naar ONNX
+
+
+Gebruik de Hailo Model Compiler
+hailomrt compile yolov8n-oiv7.onnx -o yolov8n-oiv7.hef
+
+Voer inferentie uit met Hailo
+from hailo_sdk_client import Inferencer
+inferencer = Inferencer("yolov8n-oiv7.hef")
+results = inferencer.infer(image)
