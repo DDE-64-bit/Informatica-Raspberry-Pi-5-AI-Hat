@@ -59,4 +59,27 @@ Nu moet je de hat voorzichtig op de spacers plaatsen, en vast schroeven met de o
 
 Dit was het aansluiten van de hat op de pi 5.
 
-# 3. 
+# 3. Software
+
+Nu heb je de juiste software nodig, [hier](https://www.raspberrypi.com/documentation/computers/ai.html) kan je een goede uitleg daarvoor vinden.
+
+
+# Programmeren met Hailo
+
+Ik heb al 2 programma's gemaakt die zitten in de scripts folder. Daar kan je mee doorgaan of nieuwe scripts maken.
+
+Hieronder nog een paar ideeen die ik nog had maar nog niet had kunnen uitwerken.
+* Met reinforcement learning de raspberry pi een simpel spel laten spelen (flappy bird, tetris) 
+* Iets met MCP (zie [anthropic](https://www.anthropic.com/news/model-context-protocol), [mcp github](https://github.com/modelcontextprotocol))
+* Custom objecten herkennen (gezichten, kleuren)
+* AI NIDS (Network Intrusion Detection System)
+* Een slimme honeypot met AI
+
+<hr>
+
+Als je vragen hebt kan je mij zo bereiken:
+- Discord: dde88
+- Mail: olivier.hartsuiker@gmail.com
+
+
+Mocht je andere goede script hebben kan je altijd een pull request sturen.
