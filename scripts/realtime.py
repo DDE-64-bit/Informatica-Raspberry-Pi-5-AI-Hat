@@ -1,15 +1,13 @@
 import cv2
-import torch
 from ultralytics import YOLO
 import argparse
 
-# Probeer Hailo SDK te importeren
 try:
     from hailo_sdk_client import Inferencer
     HAILO_AVAILABLE = True
 except ImportError:
     HAILO_AVAILABLE = False
-    print("⚠️ Hailo SDK niet gevonden, alleen CPU/GPU modus beschikbaar!")
+    print("Hailo SDK niet gevonden, alleen CPU/GPU modus beschikbaar!")
 
 def find_first_working_camera(max_index=5):
     for i in range(max_index):
@@ -19,7 +17,7 @@ def find_first_working_camera(max_index=5):
             print(f"[INFO] Eerste werkende camera gevonden op index {i}")
             return i
         cap.release()
-    print("❌ Geen werkende camera gevonden!")
+    print("Geen werkende camera gevonden!")
     return None
 
 def detect_with_yolo_realtime(model_path="yolov8n.pt", source=0):
@@ -28,19 +26,19 @@ def detect_with_yolo_realtime(model_path="yolov8n.pt", source=0):
     try:
         source = int(source)
     except ValueError:
-        pass  # keep as string (e.g., "/dev/video0")
+        pass 
 
     print(f"[DEBUG] Probeer camera te openen via: {source}")
     cap = cv2.VideoCapture(source)
     
     if not cap.isOpened():
-        print("❌ Fout: Kan de camera niet openen!")
+        print("Fout: Kan de camera niet openen!")
         return
 
     while True:
         ret, frame = cap.read()
         if not ret:
-            print("⚠️ Geen frame ontvangen! Controleer je camera.")
+            print("Geen frame ontvangen! Controleer je camera.")
             break
 
         results = model(frame)
@@ -69,7 +67,7 @@ def detect_with_hailo_realtime(model_path="yolov8n.hef", source=0):
     cap = cv2.VideoCapture(source)
 
     if not cap.isOpened():
-        print("❌ Fout bij openen van videostream!")
+        print("Fout bij openen van videostream!")
         return
 
     while True:
@@ -103,7 +101,7 @@ if __name__ == "__main__":
     if args.source is None:
         args.source = find_first_working_camera()
         if args.source is None:
-            print("❌ Geen beschikbare camera gevonden. Stoppen.")
+            print("Geen beschikbare camera gevonden. Stoppen.")
             exit()
 
     if args.hailo:
