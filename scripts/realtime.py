@@ -19,8 +19,19 @@ def find_first_working_camera(max_index=5):
         cap.release()
     print("Geen werkende camera gevonden!")
     return None
+"""
+    Je kan verschillende modellen gebruiken, voor de raspberry pi 5 raad ik de yolo8 modellen aan.
+    Voor heel accurate dingen zal ik onder op de lijst kijken, en voor snel en (bijna) realtime zal ik kijken naar de n en misschien de m
+    Opties:
+    - yolov8n.pt
+    - yolov8s.pt
+    - yolov8m.pt
+    - yolov8l.pt
+    - yolov8x.pt
+"""
 
-def detect_with_yolo_realtime(model_path="yolov8n.pt", source=0):
+
+def detect_with_yolo_realtime(model_path="yolov8x.pt", source=0):
     model = YOLO(model_path)
     
     try:
